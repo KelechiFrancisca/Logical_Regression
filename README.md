@@ -29,8 +29,15 @@
 ## Steps
 ## Python codes for Polynomial Logical Regression
 ## Importing the libraries
-> import numpy as np
-> 
-> import pandas as pd
-> 
-> import matplotlib.pyplot as plt
+```
+ import numpy as np
+ import pandas as pd
+ import matplotlib.pyplot as plt
+```
+---
+## Importing the dataset
+```
+dataset = pd.read_csv('loan_approval_edited.csv')
+#exclude the first column
+X = dataset.iloc[:, 1:-1].values
+y = dataset.iloc[:, -1].values
