@@ -1,2 +1,2 @@
-# Logical_Regression
-## Building_Logical_Regression_model
+# Loan_Approval_Prediction
+## Loan approval prediction using Logistic Regression, OneHotEncoding, and StandardScaler. Achieved 92% accuracy
