@@ -82,3 +82,12 @@ Confusion Matrix
  [ 34 489]]
 0.9215456674473068
 ```
+## Business Impact
+This model helps financial institutions:
+> Automate loan screening.
+> 
+> Reduce manual workload and bias.
+> 
+> Improve risk management.
+> 
+> Enhance customer experience with faster decisions.
