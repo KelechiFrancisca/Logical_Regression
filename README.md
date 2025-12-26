@@ -29,11 +29,10 @@
 ## Steps
 ## Python codes for Polynomial Logical Regression
 ## Importing the libraries
-``` Codes
-```
- import numpy as np
- import pandas as pd
- import matplotlib.pyplot as plt
+``` 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 ```
 ---
 ## Importing the dataset
@@ -42,3 +41,44 @@ dataset = pd.read_csv('loan_approval_edited.csv')
 #exclude the first column
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
+```
+## Handle categorical variables with OneHotEncoding
+```
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+ct = ColumnTransformer(transformers=[("encoder",OneHotEncoder(),[2])],remainder="passthrough")
+X = np.array(ct.fit_transform(X))
+```
+## Train/test split for evaluation
+```
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=0)
+```
+## Standardize numerical features using StandardScaler
+```
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train[:,2:] = sc.fit_transform(X_train[:,2:])
+X_test[:,2:] = sc.transform(X_test[:,2:])
+```
+## Logistic Regression classifier
+```
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state=0)
+classifier.fit(X_train,y_train)
+```
+## Evaluation
+```
+from sklearn.metrics import confusion_matrix,accuracy_score
+cm = confusion_matrix(y_test,y_pred)
+print(cm)
+accuracy_score(y_test,y_pred)
+```
+## Results
+```
+Accuracy: 92% 
+Confusion Matrix
+[[298  33]
+ [ 34 489]]
+0.9215456674473068
+```
