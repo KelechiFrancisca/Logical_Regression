@@ -27,7 +27,7 @@
 
 ---
 ## Steps
-## Python codes for Polynomial Logical Regression
+## Python codes for Logical Regression
 ## Importing the libraries
 ``` 
 import numpy as np
